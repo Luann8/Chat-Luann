@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbot de Luann Pereira Mendes</title>
+<link rel="shortcut icon" href="https://raw.githubusercontent.com/Luann8/Relogio-segundos/main/OIP.ico?token=GHSAT0AAAAAACJV6HYOOLUHOQ4F5FXZRJZAZKBP3FQ" type="image/x-icon">
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    color: rgb(77, 80, 79);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://i.pinimg.com/originals/8f/7f/a8/8f7fa8a5a8f30329348dddc5d2340169.jpg);
+  }
+  
+  .chat-container {
+    width: 100%;
+    max-width: 600px; /* Aumentado para mais espaço */
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(73, 71, 71, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #444040;
+  }
+  .chat-header {
+    background-color: #185024;
+    color: #f8f8f8;
+    padding: 15px 20px; /* Ajustado para mais espaço */
+    text-align: center;
+  }
+  .chat-content {
+    height: 400px; /* Aumentado para mais espaço */
+    overflow-y: auto;
+    padding: 15px 20px; /* Ajustado para mais espaço */
+  }
+  .chat-menu {
+    padding: 0;
+    margin: 10px 20px; /* Ajustado para mais espaço */
+  }
+  .chat-menu button {
+    width: 100%;
+    padding: 12px; /* Ajustado para mais espaço */
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #185024;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .chat-menu button:hover {
+    background-color: #00b30f;
+  }
+  .chat-response {
+    padding: 15px 20px; /* Ajustado para mais espaço */
+    background-color: #b6b6b6;
+    margin: 10px 20px; /* Ajustado para mais espaço */
+    border-radius: 5px;
+    min-height: 100px; /* Adicionado para garantir espaço para o texto */
+  }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+  <div class="chat-header">
+    <p>🖲️ Chatbot do Luann</p>
+  </div>
+  <div class="chat-content" id="chatContent">
+    <div class="chat-response" id="chatResponse">
+      Olá! Sou o Chatbot do Luann. Escolha uma opção abaixo ou faça uma pergunta.
+    </div>
+  </div>
+  <div class="chat-menu">
+    <button onclick="displayInfo('quemSouEu')">Quem sou eu ?</button>
+    <button onclick="displayInfo('cursos')">Cursos</button>
+    <button onclick="displayInfo('experiencias')">Experiências</button>
+    <button onclick="displayInfo('habilidades')">Habilidades</button>
+    <button onclick="displayInfo('contatos')">Contatos</button>
+  </div>
+</div>
+<script>
+    function displayInfo(section) {
+      var chatResponse = document.getElementById('chatResponse');
+      if (section === 'cursos') {
+        chatResponse.innerHTML = `
+          <h2 class="section-heading">Cursos</h2>
+          <ul>
+            <li>Certificação AWS Cloud Pra IoT</li>
+            <li>Interação Humano Computador (IHC) e Humano Máquina (IHM)</li>
+            <li>Modelos de Inteligência Artificial para IoT</li>
+            <li>Introdução para IoT em um mundo conectado</li>
+            <li>Materiais Complementares - Trabalhando com Transações, Controle de Concorrência e Técnicas de Recuperação de Banco de dados no MySQL</li>
+            <li>Normalização em Banco de Dados</li>
+            <li>Introdução a Banco de Dados</li>
+            <li>Introdução ao Google Cloud Platform</li>
+            <li>Visão Geral Sobre o Android Jetpack</li>
+            <li>Conhecendo o Kotlin e Sua Documentação Oficial</li>
+            <li>Fundamentos de Cibersegurança</li>
+            <li>Princípios da Cibersegurança</li>
+            <li>Materiais Complementares: Pentest e Busca de Vulnerabilidades</li>
+            <li>Apresentação da Formação Machine Learning Specialist</li>
+            <li>Entendendo Comunicação Client x Server</li>
+            <li>Introdução à Programação e Pensamento Computacional</li>
+            <li>Introdução ao Flutter</li>
+        </ul>`;
+      } else if (section === 'experiencias') {
+        chatResponse.innerHTML = `
+        <h2>Experiência</h2>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <img src="https://camo.githubusercontent.com/ad0a800ef1a99e77cad425e9f2e89f0c42a29a046edd801a740b8dd73119aa6e/68747470733a2f2f6865726d65732e6469676974616c696e6e6f766174696f6e2e6f6e652f747261636b732f38303066643039382d336565662d343565392d393534342d3534346165333936303736632e706e67" alt="Santander Dev Week" style="width: 50px; height: 50px; margin-right: 10px;">
+          <p>Santander Dev Week</p>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <img src="C:/Users/luann/OneDrive/Imagens/Screenshots/Captura de tela 2023-11-07 150231.png" alt="DMS Hackathon" style="width: 50px; height: 50px; margin-right: 10px;">
+          <p>DMS Hackathon</p>
+        </div>`;
+      } else if (section === 'habilidades') {
+        chatResponse.innerHTML = `
+          <h2 class="section-heading">Habilidades</h2>
+            <h3>Desenvolvimento Full Stack:</h3>
+            <p>Com habilidades excepcionais em linguagens de programação front-end e back-end, posso criar
+                experiências de usuário intuitivas e robustas. Meu domínio de HTML e Python permite o desenvolvimento
+                de aplicativos web e móveis de alta qualidade.</p>
+
+            <h3>Inteligência Artificial e Aprendizado de Máquina:</h3>
+            <p>Minha proficiência em IA e Python me permite desenvolver soluções avançadas, desde chatbots
+                inteligentes até análises preditivas e automação de processos.</p>
+
+            <h3>IoT e Dispositivos Embarcados:</h3>
+            <p>Tenho experiência em sistemas de Internet das Coisas (IoT) e dispositivos embarcados, conectando
+                o mundo físico ao digital, como sistemas de geolocalização.</p>
+
+            <h3>Segurança Cibernética:</h3>
+            <p>Compreensão abrangente da segurança cibernética, permitindo o projeto de sistemas à prova de invasões,
+                protegendo dados sensíveis e informações de usuários.</p>
+  
+            <h3>Design:</h3>
+            <p>Habilidades em design 3D e 2D, além de compreensão de estratégias de marketing integrado e identidade de marca.</p>
+
+        <h3>Banco de dados: </h3>
+        <p>Meu MySQL alinhado ao meu entendimento em PHP e lógica computacional é eficiente.</p>
+        `;
+      } else if (section === 'contatos') {
+        chatResponse.innerHTML = `
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<h2 class="section-heading">Contatos</h2>
+<p>
+  <a href="mailto:luannpmendes@gmail.com">
+    <i class="fas fa-envelope"></i> luannpmendes@gmail.com
+  </a>
+</p>
+<p>
+  <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/">
+    <i class="fab fa-linkedin"></i> LinkedIn
+  </a>
+</p>
+<p>
+  <a href="https://www.instagram.com/luannpmendes8/">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+</p>`;
+
+       }else if (section === 'quemSouEu') {
+            chatResponse.innerHTML = `
+              <h2>Quem sou eu ?</h2>
+              <p>Engenheiro de software (cursando) e desenvolvedor full stack poliglota em Português, Inglês e Espanhol. Localizado em Vassouras, RJ.</p>
+              <p>Como desenvolvedor full stack, meu objetivo é adquirir uma compreensão abrangente do cenário tecnológico, combinada com habilidades técnicas sólidas em programação front-end e back-end. Pretendo contribuir para a criação de soluções inovadoras que melhorem a experiência do cliente, impulsionem a eficiência operacional e explorem novas oportunidades tecnológicas.</p>
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <img src="https://raw.githubusercontent.com/Luann8/curriculo-1.1/main/Imagem%20do%20WhatsApp%20de%202023-09-25%20%C3%A0(s)%2011.13.02.jpg" alt="rosto" style="width: 200px; height: 200px; margin-right: 10px;">
+                `;
+
+             } else { 
+        chatResponse.innerHTML = 'Não entendi sua opção. Por favor, escolha uma das opções disponíveis.';
+      }
+    }
+  </script>
+  
+  </body>
+  </html>
+
+  
+ 
