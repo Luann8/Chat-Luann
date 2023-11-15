@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chatbot de Luann Pereira Mendes</title>
+<title>Luann Pereira Mendes' Chatbot</title>
 <link rel="shortcut icon" href="https://raw.githubusercontent.com/Luann8/Chat-Luann/main/OIG.ico?token=GHSAT0AAAAAACJ26QCJFKT2HSOJUDO6X3AKZKKQP7Q" type="image/x-icon">
 <style>
   body {
@@ -20,7 +20,7 @@
   
   .chat-container {
     width: 100%;
-    max-width: 600px; /* Aumentado para mais espaço */
+    max-width: 600px;
     margin: 10px;
     box-shadow: 0 0 10px rgba(73, 71, 71, 0.1);
     border-radius: 8px;
@@ -30,21 +30,21 @@
   .chat-header {
     background-color: #185024;
     color: #f8f8f8;
-    padding: 15px 20px; /* Ajustado para mais espaço */
+    padding: 15px 20px;
     text-align: center;
   }
   .chat-content {
-    height: 400px; /* Aumentado para mais espaço */
+    height: 400px;
     overflow-y: auto;
-    padding: 15px 20px; /* Ajustado para mais espaço */
+    padding: 15px 20px;
   }
   .chat-menu {
     padding: 0;
-    margin: 10px 20px; /* Ajustado para mais espaço */
+    margin: 10px 20px;
   }
   .chat-menu button {
     width: 100%;
-    padding: 12px; /* Ajustado para mais espaço */
+    padding: 12px;
     margin-bottom: 10px;
     border: none;
     border-radius: 5px;
@@ -57,11 +57,11 @@
     background-color: #00b30f;
   }
   .chat-response {
-    padding: 15px 20px; /* Ajustado para mais espaço */
+    padding: 15px 20px;
     background-color: #b6b6b6;
-    margin: 10px 20px; /* Ajustado para mais espaço */
+    margin: 10px 20px;
     border-radius: 5px;
-    min-height: 100px; /* Adicionado para garantir espaço para o texto */
+    min-height: 100px;
   }
 </style>
 </head>
@@ -69,122 +69,139 @@
 
 <div class="chat-container">
   <div class="chat-header">
-    <p>🖲️ Chatbot do Luann</p>
+    <p>🖲️ Luann's Chatbot</p>
   </div>
   <div class="chat-content" id="chatContent">
     <div class="chat-response" id="chatResponse">
-      Olá! Sou o Chatbot do Luann. Escolha uma opção abaixo ou faça uma pergunta.
+      Hello! I'm Luann's Chatbot. Feel free to explore my educational background and skills.
     </div>
   </div>
   <div class="chat-menu">
-    <button onclick="displayInfo('quemSouEu')">Quem sou eu ?</button>
-    <button onclick="displayInfo('cursos')">Cursos</button>
-    <button onclick="displayInfo('experiencias')">Experiências</button>
-    <button onclick="displayInfo('habilidades')">Habilidades</button>
-    <button onclick="displayInfo('contatos')">Contatos</button>
+    <button onclick="displayInfo('whoAmI')">Who am I?</button>
+    <button onclick="displayInfo('courses')">Courses</button>
+    <button onclick="displayInfo('experiences')">Experiences</button>
+    <button onclick="displayInfo('skills')">Skills</button>
+    <button onclick="displayInfo('contacts')">Contacts</button>
   </div>
 </div>
+
 <script>
-    function displayInfo(section) {
-      var chatResponse = document.getElementById('chatResponse');
-      if (section === 'cursos') {
-        chatResponse.innerHTML = `
-          <h2 class="section-heading">Cursos</h2>
-          <ul>
-            <li>Certificação AWS Cloud Pra IoT</li>
-            <li>Interação Humano Computador (IHC) e Humano Máquina (IHM)</li>
-            <li>Modelos de Inteligência Artificial para IoT</li>
-            <li>Introdução para IoT em um mundo conectado</li>
-            <li>Materiais Complementares - Trabalhando com Transações, Controle de Concorrência e Técnicas de Recuperação de Banco de dados no MySQL</li>
-            <li>Normalização em Banco de Dados</li>
-            <li>Introdução a Banco de Dados</li>
-            <li>Introdução ao Google Cloud Platform</li>
-            <li>Visão Geral Sobre o Android Jetpack</li>
-            <li>Conhecendo o Kotlin e Sua Documentação Oficial</li>
-            <li>Fundamentos de Cibersegurança</li>
-            <li>Princípios da Cibersegurança</li>
-            <li>Materiais Complementares: Pentest e Busca de Vulnerabilidades</li>
-            <li>Apresentação da Formação Machine Learning Specialist</li>
-            <li>Entendendo Comunicação Client x Server</li>
-            <li>Introdução à Programação e Pensamento Computacional</li>
-            <li>Introdução ao Flutter</li>
+  var currentLanguage = 'en';
+
+  function displayInfo(section) {
+    var chatResponse = document.getElementById('chatResponse');
+    if (section === 'courses') {
+      chatResponse.innerHTML = `
+        <h2 class="section-heading">Educational Background</h2>
+        <ul>
+            <li>AWS Cloud for IoT Certification</li>
+            <li>Human-Computer Interaction (HCI) and Human Machine Interaction (HMI)</li>
+            <li>Artificial Intelligence Models for IoT</li>
+            <li>Introduction to IoT in a Connected World</li>
+            <li>Supplementary Materials - Working with Transactions, Concurrency Control, and Database Recovery Techniques in MySQL</li>
+            <li>Database Normalization</li>  
+            <li>Introduction to Google Cloud Platform</li>
+            <li>Android Jetpack Overview</li>
+            <li>Getting to Know Kotlin and Its Official Documentation</li>
+            <li>Fundamentals of Cybersecurity</li>
+            <li>Principles of Cybersecurity</li>
+            <li>Complementary Materials: Pentest and Vulnerability Search</li>
+            <li>Machine Learning Specialist Training Presentation</li>
+            <li>Understanding Client vs. Server Communication</li>
+            <li>Introduction to Programming and Computational Thinking</li>
+            <li>Getting Started with Flutter</li>
         </ul>`;
-      } else if (section === 'experiencias') {
-        chatResponse.innerHTML = `
-        <h2>Experiência</h2>
+    } else if (section === 'experiences') {
+      chatResponse.innerHTML = `
+      <h2>Professional Experiences</h2>
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <img src="https://camo.githubusercontent.com/ad0a800ef1a99e77cad425e9f2e89f0c42a29a046edd801a740b8dd73119aa6e/68747470733a2f2f6865726d65732e6469676974616c696e6e6f766174696f6e2e6f6e652f747261636b732f38303066643039382d336565662d343565392d393534342d3534346165333936303736632e706e67" alt="Santander Dev Week" style="width: 50px; height: 50px; margin-right: 10px;">
+        <p>Santander Dev Week</p>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <img src="https://raw.githubusercontent.com/Luann8/Chat-Luann/main/Captura%20de%20tela%202023-11-07%20150231.png?token=GHSAT0AAAAAACJ26QCICO6P5YIFERDRJPACZKKQQYA" alt="DMS Hackathon" style="width: 50px; height: 50px; margin-right: 10px;">
+        <p>DMS Hackathon</p>
+      `;
+    } else if (section === 'skills') {
+      chatResponse.innerHTML = `
+
+<h2>Skills</h2>
+
+      <ul>
+        <li><strong>Web Development:</strong> Proficient in building robust web applications using technologies such as JavaScript, React, HTML, CSS, and frameworks like Django.</li>
+        <li><strong>Internet of Things (IoT):</strong> Well-versed in the realm of IoT, bringing connectivity and intelligence to devices for enhanced functionality.</li>
+        <li><strong>Cybersecurity:</strong> Adept in ensuring digital landscapes are secure, employing best practices to safeguard against potential threats.</li>
+        <li><strong>Cloud Computing:</strong> Experienced in leveraging cloud platforms like AWS and Google Cloud to create scalable and efficient solutions.</li>
+        <li><strong>Databases:</strong> Skilled in designing and managing databases, utilizing MySQL and other database technologies for efficient data storage and retrieval.</li>
+        <li><strong>Artificial Intelligence and Machine Learning:</strong> Proficient in the application of AI and ML, with a commitment to exploring innovative solutions for real-world challenges.</li>
+      </ul>
+      
+      <p><strong>Backend Development:</p>
+
+      <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+      <img alt="PHP" src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" />
+      <img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />
+      <img alt="Django" src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" />
+      <img alt="Json" src="https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white" />
+      <img alt="Flash" src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">
+      
+      <p<strong> Frontend Development:</p>
+      
+      <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+      <img alt="React" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+      <img alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+      <img alt="CSS" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+      
+      <p><strong>Data Science, Cloud & IDE:</p>
+      
+      <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code">
+      <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter">
+      <img src="https://img.shields.io/badge/PyCharm-000000?style=for-the-badge&logo=pycharm&logoColor=white" alt="PyCharm">
+      <img alt= "Anaconda" src="https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white" alt="Anaconda">
+      <img alt="AWS" src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+      <img alt="Google Cloud" src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />`
+
+    } else if (section === 'contacts') {
+      chatResponse.innerHTML = `
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<h2 class="section-heading">Contacts</h2>
+      <p>
+        <a href="mailto:luannpmendes@gmail.com">
+          <i class="fas fa-envelope"></i> luannpmendes@gmail.com
+        </a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </p>
+      <p>
+        <a href="https://www.instagram.com/luannpmendes8/">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </p>
+      `;
+    } else if (section === 'whoAmI') {
+      chatResponse.innerHTML = `
+        <h2>Luann Pereira Mendes</h2>
+        👨‍💻 Full Stack student pursuing Software Engineering with a focus on Data Science. Proficient in 🌐 Web Development, 📡 Internet of Things (IoT), 🔐 Cybersecurity, ☁️ Cloud Computing, 🗄️ Databases, 🧠 Artificial Intelligence, and Machine Learning. Committed to tackling a variety of challenges in the world of technology.
+        <p></p>
         <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <img src="https://camo.githubusercontent.com/ad0a800ef1a99e77cad425e9f2e89f0c42a29a046edd801a740b8dd73119aa6e/68747470733a2f2f6865726d65732e6469676974616c696e6e6f766174696f6e2e6f6e652f747261636b732f38303066643039382d336565662d343565392d393534342d3534346165333936303736632e706e67" alt="Santander Dev Week" style="width: 50px; height: 50px; margin-right: 10px;">
-          <p>Santander Dev Week</p>
-        </div>
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <img src="https://raw.githubusercontent.com/Luann8/Chat-Luann/main/Captura%20de%20tela%202023-11-07%20150231.png?token=GHSAT0AAAAAACJ26QCICO6P5YIFERDRJPACZKKQQYA" alt="DMS Hackathon" style="width: 50px; height: 50px; margin-right: 10px;">
-          <p>DMS Hackathon</p>
-        </div>`;
-      } else if (section === 'habilidades') {
-        chatResponse.innerHTML = `
-          <h2 class="section-heading">Habilidades</h2>
-            <h3>Desenvolvimento Full Stack:</h3>
-            <p>Com habilidades excepcionais em linguagens de programação front-end e back-end, posso criar
-                experiências de usuário intuitivas e robustas. Meu domínio de HTML e Python permite o desenvolvimento
-                de aplicativos web e móveis de alta qualidade.</p>
+          <img src="https://raw.githubusercontent.com/Luann8/curriculo-1.1/main/Imagem%20do%20WhatsApp%20de%202023-09-25%20%C3%A0(s)%2011.13.02.jpg" alt="rosto" style="width: 200px; height: 200px; margin-right: 10px;">
+       `;
 
-            <h3>Inteligência Artificial e Aprendizado de Máquina:</h3>
-            <p>Minha proficiência em IA e Python me permite desenvolver soluções avançadas, desde chatbots
-                inteligentes até análises preditivas e automação de processos.</p>
 
-            <h3>IoT e Dispositivos Embarcados:</h3>
-            <p>Tenho experiência em sistemas de Internet das Coisas (IoT) e dispositivos embarcados, conectando
-                o mundo físico ao digital, como sistemas de geolocalização.</p>
-
-            <h3>Segurança Cibernética:</h3>
-            <p>Compreensão abrangente da segurança cibernética, permitindo o projeto de sistemas à prova de invasões,
-                protegendo dados sensíveis e informações de usuários.</p>
-  
-            <h3>Design:</h3>
-            <p>Habilidades em design 3D e 2D, além de compreensão de estratégias de marketing integrado e identidade de marca.</p>
-
-        <h3>Banco de dados: </h3>
-        <p>Meu MySQL alinhado ao meu entendimento em PHP e lógica computacional é eficiente.</p>
-        `;
-      } else if (section === 'contatos') {
-        chatResponse.innerHTML = `
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-<h2 class="section-heading">Contatos</h2>
-<p>
-  <a href="mailto:luannpmendes@gmail.com">
-    <i class="fas fa-envelope"></i> luannpmendes@gmail.com
-  </a>
-</p>
-<p>
-  <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/">
-    <i class="fab fa-linkedin"></i> LinkedIn
-  </a>
-</p>
-<p>
-  <a href="https://www.instagram.com/luannpmendes8/">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
-</p>`;
-
-       }else if (section === 'quemSouEu') {
-            chatResponse.innerHTML = `
-              <h2>Quem sou eu ?</h2>
-              <p>Engenheiro de software (cursando) e desenvolvedor full stack poliglota em Português, Inglês e Espanhol. Localizado em Vassouras, RJ.</p>
-              <p>Como desenvolvedor full stack, meu objetivo é adquirir uma compreensão abrangente do cenário tecnológico, combinada com habilidades técnicas sólidas em programação front-end e back-end. Pretendo contribuir para a criação de soluções inovadoras que melhorem a experiência do cliente, impulsionem a eficiência operacional e explorem novas oportunidades tecnológicas.</p>
-            <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                <img src="https://raw.githubusercontent.com/Luann8/curriculo-1.1/main/Imagem%20do%20WhatsApp%20de%202023-09-25%20%C3%A0(s)%2011.13.02.jpg" alt="rosto" style="width: 200px; height: 200px; margin-right: 10px;">
-                `;
-
-             } else { 
-        chatResponse.innerHTML = 'Não entendi sua opção. Por favor, escolha uma das opções disponíveis.';
-      }
+    } else {
+      chatResponse.innerHTML = 'I didn\'t understand your choice. Please choose one of the available options.';
     }
-  </script>
-  
-  </body>
-  </html>
+  }
 
-  
- 
+  function toggleLanguage() {
+    currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+    // Implement language toggle logic, if needed
+    console.log('Language toggled to ' + currentLanguage);
+  }
+</script>
+</body>
+</html>
