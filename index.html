@@ -1,101 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luann Pereira Mendes' Chatbot</title>
-<link rel="shortcut icon" href="https://raw.githubusercontent.com/Luann8/Chat-Luann/main/OIG.ico?token=GHSAT0AAAAAACJ26QCJFKT2HSOJUDO6X3AKZKKQP7Q" type="image/x-icon">
-<style>
-  body {
-  font-family: 'Courier New', Courier, monospace; 
-  color: rgb(77, 80, 79);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  min-height: 100vh; /* Altura mínima para evitar que o conteúdo ultrapasse a altura da tela */
-  background-image: url(https://i.pinimg.com/originals/8f/7f/a8/8f7fa8a5a8f30329348dddc5d2340169.jpg);
-  background-size: cover; /* Esticar a imagem para cobrir a tela inteira */
-  background-position: center; /* Centralizar a imagem na tela */
-  background-repeat: no-repeat; /* Não repetir a imagem */
-}
-  
-  .chat-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(73, 71, 71, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #444040;
-  }
-  .chat-header {
-    background-color: #185024;
-    color: #f8f8f8;
-    padding: 15px 20px;
-    text-align: center;
-  }
-  .chat-content {
-    height: 400px;
-    overflow-y: auto;
-    padding: 15px 20px;
-  }
-  .chat-menu {
-    padding: 0;
-    margin: 10px 20px;
-  }
-  .chat-menu button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #185024;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .chat-menu button:hover {
-    background-color: #00b30f;
-  }
-  .chat-response {
-    padding: 15px 20px;
-    background-color: #b6b6b6;
-    margin: 10px 20px;
-    border-radius: 5px;
-    min-height: 100px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luann Pereira Mendes' Chatbot</title>
+  <link rel="shortcut icon"
+    href="https://raw.githubusercontent.com/Luann8/Chat-Luann/main/OIG.ico?token=GHSAT0AAAAAACJ26QCJFKT2HSOJUDO6X3AKZKKQP7Q"
+    type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      color: rgb(255, 255, 255);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      min-height: 100vh;
+      background-image: url(https://i.pinimg.com/originals/8f/7f/a8/8f7fa8a5a8f30329348dddc5d2340169.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .chat-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px;
+      box-shadow: 0 0 10px rgba(73, 71, 71, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #444040;
+    }
+
+    .chat-header {
+      background-color: #185024;
+      color: #f8f8f8;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    .chat-content {
+      height: 400px;
+      overflow-y: auto;
+      padding: 15px 20px;
+    }
+
+    .chat-menu {
+      padding: 0;
+      margin: 10px 20px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .button-container button {
+      flex: 1;
+      margin-right: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #185024;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button-container button:last-child {
+      margin-right: 0;
+    }
+
+    .button-container button:hover {
+      background-color: #00b30f;
+    }
+
+    .chat-menu input[type="text"] {
+      width: calc(100% - 24px);
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+    }
+
+    .chat-menu input[type="text"]::placeholder {
+      color: #ffffff;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="chat-container">
-  <div class="chat-header">
-    <p>🖲️ Luann's Chatbot</p>
-  </div>
-  <div class="chat-content" id="chatContent">
-    <div class="chat-response" id="chatResponse">
-      Hello! I'm Luann's Chatbot. Feel free to explore my educational background and skills.
+  <div class="chat-container">
+    <div class="chat-header">
+      <p>🖲️ Luann's Chatbot</p>
     </div>
-  </div>
-  <div class="chat-menu">
-    <button onclick="displayInfo('whoAmI')">Who am I?</button>
-    <button onclick="displayInfo('courses')">Courses</button>
-    <button onclick="displayInfo('experiences')">Experiences</button>
-    <button onclick="displayInfo('skills')">Skills</button>
-    <button onclick="displayInfo('contacts')">Contacts</button>
-  </div>
-</div>
+    <div class="chat-content" id="chatContent">
+      <div class="chat-response" id="chatResponse">
+        Hello! I'm Luann's Chatbot. Feel free to explore my educational background and skills.
+      </div>
+    </div>
+    <div class="chat-menu">
+      <div class="button-container">
+        <button onclick="displayInfo('whoAmI')">Who am I?</button>
+        <button onclick="displayInfo('courses')">Courses</button>
+      </div>
+      <div class="button-container">
+        <button onclick="displayInfo('experiences')">Experiences</button>
+        <button onclick="displayInfo('skills')">Skills</button>
+      </div>
+      <div class="button-container">
+        <button onclick="displayInfo('contacts')">Contacts</button>
+        <button onclick="displayKeywordClass()">Send keyword</button>
+      </div>
+      <input type="text" id="keywordInput" placeholder="Type a keyword">
+    </div>
 
-<script>
-  var currentLanguage = 'en';
+    <script>
+      // Função para exibir a informação correspondente à palavra-chave no menu
+      function displayKeywordClass() {
+        var keywordInput = document.getElementById('keywordInput').value.toLowerCase();
+        var chatMenuButtons = document.querySelectorAll('.chat-menu button');
 
-  function displayInfo(section) {
-    var chatResponse = document.getElementById('chatResponse');
-    if (section === 'courses') {
-      chatResponse.innerHTML = `
+        switch (true) {
+          case keywordInput.includes('python'):
+          case keywordInput.includes('javascript'):
+            chatMenuButtons[3].click(); // Skills
+            break;
+          case keywordInput.includes('aws'):
+            chatMenuButtons[4].click(); // Contacts
+            break;
+          case keywordInput.includes('education'):
+            chatMenuButtons[1].click(); // Courses
+            break;
+          case keywordInput.includes('experience'):
+          case keywordInput.includes('backend'):
+          case keywordInput.includes('frontend'):
+          case keywordInput.includes('full stack'):
+          case keywordInput.includes('cloud computing'):
+          case keywordInput.includes('cybersecurity'):
+          case keywordInput.includes('database'):
+          case keywordInput.includes('artificial intelligence'):
+          case keywordInput.includes('machine learning'):
+          case keywordInput.includes('data science'):
+          case keywordInput.includes('iot'):
+          case keywordInput.includes('api development'):
+          case keywordInput.includes('web development'):
+          case keywordInput.includes('mobile development'):
+          case keywordInput.includes('software engineering'):
+          case keywordInput.includes('software development'):
+            chatMenuButtons[3].click(); // Experiences
+            break;
+          default:
+            alert("Keyword not found!");
+        }
+
+        document.getElementById('keywordInput').value = ''; // Limpar o campo de entrada após clicar em "Enviar"
+      }
+
+      function displayInfo(infoType) {
+        var chatResponse = document.getElementById('chatResponse');
+
+        switch (infoType) {
+          case 'whoAmI':
+            chatResponse.innerHTML = "I am Luann Pereira Mendes' Chatbot. I am here to provide information about Luann's background and skills.";
+            break;
+          case 'courses':
+            chatResponse.innerHTML = "Luann has completed several courses in programming, web development, cloud computing, cybersecurity, and artificial intelligence.";
+            break;
+          case 'experiences':
+            chatResponse.innerHTML = "Luann has worked as a software developer and has experience in both front-end and back-end development. He has also worked on projects involving machine learning and data science.";
+            break;
+          case 'skills':
+            chatResponse.innerHTML = "Luann's skills include Python, JavaScript, AWS, SQL, React, Django, Flask, TensorFlow, and more.";
+            break;
+          case 'contacts':
+            chatResponse.innerHTML = "You can contact Luann via email at luann@example.com or connect with him on LinkedIn at [LinkedIn Profile URL].";
+            break;
+          default:
+            chatResponse.innerHTML = "Sorry, I couldn't find the information you requested.";
+        }
+      }
+
+      var currentLanguage = 'en';
+
+      function displayInfo(section) {
+        var chatResponse = document.getElementById('chatResponse');
+        if (section === 'courses') {
+          chatResponse.innerHTML = `
         <h2 class="section-heading">Educational Background</h2>
         <ul>
             <li>AWS Cloud for IoT Certification</li>
@@ -116,8 +213,8 @@
             <li>Getting Started with Flutter</li>
             <li>Advanced Big Data and Data Mining</li>
         </ul>`;
-    } else if (section === 'experiences') {
-      chatResponse.innerHTML = `
+        } else if (section === 'experiences') {
+          chatResponse.innerHTML = `
           <h2>Experiences</h2>
       <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQEYkAeXiPrCFA/company-logo_200_200/0/1591793643450?e=2159024400&v=beta&t=dfNMm4AXvKYM9oPWiUrnXBcrImosmCmfmGqlWxCSu58" alt="Santander Dev Week" style="width: 50px; height: 50px; margin-right: 10px;">
@@ -132,8 +229,8 @@
             <img src="https://raw.githubusercontent.com/Luann8/Chat-Luann/main/UniVassouras%20Vertical%20Branca.png.png" alt="WEB" style="width: 50px; height: 50px; margin-right: 10px;">
             <p>Professor of web site programming monitoring (UNIVassouras)</p>
       `;
-    } else if (section === 'skills') {
-      chatResponse.innerHTML = `
+        } else if (section === 'skills') {
+          chatResponse.innerHTML = `
 
 <h2>Skills</h2>
 
@@ -149,61 +246,61 @@
     </ul>
 
       
-      <p><strong>Backend Development:</p>
-
-      <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-      <img alt="PHP" src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" />
-      <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
-      <img alt="Django" src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" />
-      
-      <p<strong> Frontend Development:</p>
-      
-      <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-      <img alt="React" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-      <img alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-      <img alt="CSS" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-      
-      <p><strong>Data Science, Cloud & IDE:</p>
-      
-      <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code">
-      <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter">
-      <img src="https://img.shields.io/badge/PyCharm-000000?style=for-the-badge&logo=pycharm&logoColor=white" alt="PyCharm">
-      <img alt= "Anaconda" src="https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white" alt="Anaconda">
-      <img alt="AWS" src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />
-      <img alt="Google Cloud" src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />
-      
-      <p><strong>Studyng</strong></p>
+    <p><strong>Backend Development:</strong></p>
         
-      <img src="https://img.shields.io/badge/Docker-2496ed?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-      <img src="https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Kali">
-      <img src="https://img.shields.io/badge/Rust-E34F26?style=for-the-badge&logo=Rust&logoColor=white" alt="C++">
-      <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" alt="Lua">
+        <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+        <img alt="PHP" src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" />
+        <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" />
+        <img alt="Django" src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" />
+        <br><br>
+        <p><strong>Frontend Development:</strong></p>
+              
+        <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+        <img alt="React" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+        <img alt="HTML" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+        <img alt="CSS" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+        <br><br>
+        <p><strong>Data Science, Cloud & IDE:</strong></p>
+              
+        <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code">
+        <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter">
+        <img src="https://img.shields.io/badge/PyCharm-000000?style=for-the-badge&logo=pycharm&logoColor=white" alt="PyCharm">
+        <img alt= "Anaconda" src="https://img.shields.io/badge/Anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white" alt="Anaconda">
+        <img alt="AWS" src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+        <img alt="Google Cloud" src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />
+        <br><br>
+        <p><strong>Studying :</strong></p>
+                
+        <img src="https://img.shields.io/badge/Docker-2496ed?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+        <img src="https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white" alt="Kali">
+        <img src="https://img.shields.io/badge/Rust-E34F26?style=for-the-badge&logo=Rust&logoColor=white" alt="C++">
+        <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white" alt="Lua">
 
     `;
 
-    } else if (section === 'contacts') {
-      chatResponse.innerHTML = `
+        } else if (section === 'contacts') {
+          chatResponse.innerHTML = `
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<h2 class="section-heading">Contacts</h2>
-      <p>
-        <a href="mailto:luannpmendes@gmail.com">
-          <i class="fas fa-envelope"></i> luannpmendes@gmail.com
-        </a>
-      </p>
-      <p>
-        <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-      </p>
-      <p>
-        <a href="https://www.instagram.com/luannpmendes8/">
-          <i class="fab fa-instagram"></i> Instagram
-        </a>
-      </p>
+      <h2 class="section-heading">Contacts</h2>
+<p>
+  <a href="mailto:luannpmendes@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
+  </a>
+</p>
+<p>
+  <a href="https://www.linkedin.com/in/luann-pereira-mendes-81706826a/">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+</p>
+<p>
+  <a href="https://www.instagram.com/luannpmendes8/">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
+  </a>
+</p>
       `;
-    } else if (section === 'whoAmI') {
-      chatResponse.innerHTML = `
+        } else if (section === 'whoAmI') {
+          chatResponse.innerHTML = `
         <h2>Luann Pereira Mendes</h2>
         👨‍💻 Full Stack student pursuing Software Engineering, proficient in 🌐 Web Development, 📡 Internet of Things (IoT), 🔐 Cybersecurity, ☁️ Cloud Computing, 🗄️ Databases, 🧠 Artificial Intelligence, and Machine Learning. Committed to tackling a variety of challenges in the world of technology.
         <p></p>
@@ -212,16 +309,20 @@
        `;
 
 
-    } else {
-      chatResponse.innerHTML = 'I didn\'t understand your choice. Please choose one of the available options.';
-    }
-  }
+        } else {
+          chatResponse.innerHTML = 'I didn\'t understand your choice. Please choose one of the available options.';
+        }
+      }
 
-  function toggleLanguage() {
-    currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
-    // Implement language toggle logic, if needed
-    console.log('Language toggled to ' + currentLanguage);
-  }
-</script>
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'es' : 'en';
+        // Implement language toggle logic, if needed
+        console.log('Language toggled to ' + currentLanguage);
+      }
+
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </body>
+
 </html>
